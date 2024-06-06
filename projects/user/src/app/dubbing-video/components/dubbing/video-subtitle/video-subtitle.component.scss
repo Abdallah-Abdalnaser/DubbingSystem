@@ -1,0 +1,91 @@
+@use '../../../../scss/variabels.scss' as * ;
+@use '../../../../scss/mixin.scss' as * ;
+
+.container {
+  align-items: center;
+  margin-top: 25px;
+  .row {
+    .col-md-7 {
+      background-color: #eee;
+      border-radius: 10px;
+      box-shadow: 0px 0px 15px #ccc;
+      figcaption {
+        height: 75vh;
+        overflow-y: scroll;
+        &::-webkit-scrollbar {
+          width: 0px;
+        }
+        .box {
+          position: relative;
+          border-radius: 10px;
+          display: flex;
+          align-items: center;
+          background-color: white;
+          margin: 25px 10px;
+          padding: 20px;
+          transition: 0.3s;
+          &:hover {
+            transform: scale(1.01);
+          }
+          span {
+            &:first-of-type {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              width: 40px;
+              height: 40px;
+              background-color: $gray;
+              color: white;
+              font: {
+                weight: 600;
+                size:20px
+              }
+              border-radius: 50%;
+              margin-right: 15px;
+              @include breakpoint ("mobile") {
+                width: 20px;
+                height: 20px;
+                padding: 10px;
+                font: {
+                  weight: 200;
+                  size:15px
+                }
+              }
+            }
+            &:last-of-type {
+              position: absolute;
+              right: 15px;
+              bottom: 10px;
+              color: white;
+              padding: 4px 6px;
+              border-radius: 5px;
+              background-color: $black;
+              @include breakpoint ("mobile") {
+                font-size: 10px;
+              }
+            }
+          }
+          p {
+            max-width: 600px;
+            @include breakpoint ("mobile") {
+              font-size: 8px;
+            }
+          }
+        }
+      }
+    }
+    .col-md-5 {
+      padding: 0px;
+      figure {
+        video {
+          // @include breakpoint ("mobile") {
+          //   width: 260px;
+          // }
+          width: 95%;
+          box-shadow: 0px 0px 20px #ccc;
+          border-radius: 5px;
+        }
+      }
+    }
+  }
+}

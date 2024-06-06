@@ -1,0 +1,38 @@
+<nav>
+  <!-- menu Button -->
+  <div class="menu">
+    <h2>Voice Over</h2>
+  </div>
+  <!-- page -->
+  <ul>
+    <li>
+      <fa-icon [icon] = "faPersonHalfDress"></fa-icon>
+      <select name="gender" id="gender">
+        <option value="male">Male</option>
+        <option value="Female">Female</option>
+      </select>
+      <!-- <span>Original</span> -->
+    </li>
+    <li>
+      <fa-icon [icon] = "faMicrophone"></fa-icon>
+      <select name="gender" id="gender">
+        <option value="male">Angry</option>
+        <option value="Female">Sad</option>
+        <option value="Female">Excited</option>
+        <option value="Female">Cheerfly</option>
+      </select>
+      <!-- <span>Arabic</span> -->
+    </li>
+  </ul>
+  <!-- profile Button-->
+  <div class="Profile_home">
+    <div class="home" [routerLink]="['/home']">
+      <fa-icon [icon] = "faHome"></fa-icon>
+      <span>Home</span>
+    </div>
+    <div class="profile">
+      <fa-icon [icon] = "faUser"></fa-icon>
+      <span>Profile</span>
+    </div>
+  </div>
+</nav>

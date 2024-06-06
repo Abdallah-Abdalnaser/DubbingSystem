@@ -1,0 +1,17 @@
+.main {
+  position: relative;
+  display: flex;
+  div {
+    &:first-of-type {
+    }
+    &:last-of-type {
+      height: 100vh;
+      overflow: scroll;
+      padding: 15px 25px;
+      flex: 2;
+      &::-webkit-scrollbar {
+        width: 0px;
+      }
+    }
+  }
+}

@@ -1,0 +1,28 @@
+<nav>
+  <!-- menu Button -->
+  <div class="menu">
+    <h2>Dubbing</h2>
+  </div>
+  <!-- page -->
+  <ul>
+    <li class="active">
+      <fa-icon [icon] = "faGlobe"></fa-icon>
+      <span>Original</span>
+    </li>
+    <li>
+      <fa-icon [icon] = "faGlobe"></fa-icon>
+      <span>Arabic</span>
+    </li>
+  </ul>
+  <!-- profile Button-->
+  <div class="Profile_home">
+    <div class="home" [routerLink]="['/home']">
+      <fa-icon [icon] = "faHome"></fa-icon>
+      <span>Home</span>
+    </div>
+    <div class="profile">
+      <fa-icon [icon] = "faUser"></fa-icon>
+      <span>Profile</span>
+    </div>
+  </div>
+</nav>

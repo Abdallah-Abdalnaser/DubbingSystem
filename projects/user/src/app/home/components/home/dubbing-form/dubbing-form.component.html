@@ -1,0 +1,16 @@
+<header>
+  <fa-icon [icon]="faCloudflare"></fa-icon>
+  <h1>Upload Video</h1>
+  <span (click)="close()">x</span>
+</header>
+<div class="mb-3">
+  <label for="formFile" class="form-label">Upload Video</label>
+  <input class="form-control" type="file" id="formFile">
+</div>
+<div class="input-group flex-nowrap">
+  <span class="input-group-text" id="addon-wrapping">
+    <fa-icon [icon]="faYoutube"></fa-icon>
+  </span>
+  <input type="text" class="form-control" placeholder="Past Youtube Video Link Here" aria-label="link" aria-describedby="addon-wrapping">
+</div>
+<button type="button" class="btn btn-dark" [routerLink]="['/DubbingVideo']" routerLinkActive="active">Submit</button>

@@ -1,0 +1,26 @@
+<div class="con">
+  <div [ngClass]="{overlay:showSideBar === true}"></div>
+</div>
+<nav [ngStyle]="{width:mainWidth}">
+  <!-- menu Button -->
+  <div class="menu" (click)="showSideBare()">
+    <fa-icon [icon] = "faBars"></fa-icon>
+    <span [ngClass]="{hidden:showSideBar === false}">Menu</span>
+  </div>
+  <!-- page -->
+  <ul>
+    <li [routerLink]="['/DashBoard','management']" routerLinkActive="active">
+      <fa-icon [icon] = "faBagShopping"></fa-icon>
+      <span [ngClass]="{hidden:showSideBar === false}">User Management</span>
+    </li>
+    <li [routerLink]="['/DashBoard','statiscs']" routerLinkActive="active">
+      <fa-icon [icon] = "faChartPie"></fa-icon>
+      <span [ngClass]="{hidden:showSideBar === false}">Statistics Overview</span>
+    </li>
+  </ul>
+  <!-- profile Button-->
+  <div class="Profile">
+    <fa-icon [icon] = "faUser"></fa-icon>
+    <span [ngClass]="{hidden:showSideBar === false}">Profile</span>
+  </div>
+</nav>

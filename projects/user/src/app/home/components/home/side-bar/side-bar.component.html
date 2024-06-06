@@ -1,0 +1,30 @@
+<div class="con">
+  <div [ngClass]="{overlay:showSideBar === true}"></div>
+</div>
+<nav [ngStyle]="{width:mainWidth}">
+  <!-- menu Button -->
+  <div class="menu" (click)="showSideBare()">
+    <fa-icon [icon] = "faBars"></fa-icon>
+    <span [ngClass]="{hidden:showSideBar === false}">Menu</span>
+  </div>
+  <!-- page -->
+  <ul>
+    <li [routerLink]="['/home']"  routerLinkActive="active">
+      <fa-icon [icon] = "faHome"></fa-icon>
+      <span [ngClass]="{hidden:showSideBar === false}">Home</span>
+    </li>
+    <li (click)="openFormLink()">
+      <fa-icon [icon] = "faVideo"></fa-icon>
+      <span [ngClass]="{hidden:showSideBar === false}">Dubbing Video</span>
+    </li>
+    <li [routerLink]="['/VoiceOver']" routerLinkActive="active">
+      <fa-icon [icon] = "faMicrophone" ></fa-icon>
+      <span [ngClass]="{hidden:showSideBar === false}">Voice Over</span>
+    </li>
+  </ul>
+  <!-- profile Button-->
+  <div class="Profile">
+    <fa-icon [icon] = "faUser"></fa-icon>
+    <span [ngClass]="{hidden:showSideBar === false}">Profile</span>
+  </div>
+</nav>
