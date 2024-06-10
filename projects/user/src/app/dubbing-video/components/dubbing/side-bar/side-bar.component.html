@@ -5,11 +5,11 @@
   </div>
   <!-- page -->
   <ul>
-    <li class="active">
+    <li (click)="original()" [ngClass]="{active: org}">
       <fa-icon [icon] = "faGlobe"></fa-icon>
       <span>Original</span>
     </li>
-    <li>
+    <li (click)="Arabic()" [ngClass]="{active: !org}">
       <fa-icon [icon] = "faGlobe"></fa-icon>
       <span>Arabic</span>
     </li>

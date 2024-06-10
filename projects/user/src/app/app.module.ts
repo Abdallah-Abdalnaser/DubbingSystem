@@ -9,6 +9,9 @@ import { VoiceoverModule } from './voiceover/voiceover.module';
 
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AuthModule } from './auth/auth.module';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -22,7 +25,10 @@ import { AuthModule } from './auth/auth.module';
     FontAwesomeModule,
     DubbingVideoModule,
     VoiceoverModule,
-    AuthModule
+    AuthModule,
+    HttpClientModule,
+    FormsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

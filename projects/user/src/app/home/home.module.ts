@@ -9,6 +9,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from '../app-routing.module';
 import { DubbingFormComponent } from './components/home/dubbing-form/dubbing-form.component';
 import { DashboardModule } from '../dashboard/dashboard.module';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -24,7 +26,9 @@ import { DashboardModule } from '../dashboard/dashboard.module';
     CommonModule,
     FontAwesomeModule,
     AppRoutingModule,
-    DashboardModule
+    DashboardModule,
+    HttpClientModule,
+    FormsModule
   ],
 })
 export class HomeModule { }
