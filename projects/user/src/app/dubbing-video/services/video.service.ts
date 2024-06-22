@@ -18,7 +18,7 @@ export class VideoService {
   ApiLink:string="http://20.121.123.74:5000/api/";
   constructor(private http:HttpClient) { }
 
-  getData () {
-    return this.http.get<data>(`${this.ApiLink}media-links`)
+  getData(name:any) {
+    return this.http.get<data>(`${this.ApiLink}media-links/${name}`)
   }
 }

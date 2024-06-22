@@ -1,0 +1,38 @@
+@use '../../../../scss/variabels.scss' as * ;
+
+section {
+  position: relative;
+  padding: 12px 18px;
+  header {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 7px 0px;
+    border-bottom: 1px solid #ccc;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    > fa-icon {
+      color:$black;
+      font-size: 15px;
+      margin-right: 8px;
+    }
+    h1 {
+      font-size: 20px;
+      margin: 0px;
+    }
+    span {
+      position: absolute;
+      right: 0px;
+      top: 0px;
+      font-size: 20px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+  }
+
+  button {
+    width: 100%;
+    margin-top: 10px;
+  }
+}

@@ -12,8 +12,8 @@ import { RegisterComponent } from './auth/components/register/register.component
 
 const routes: Routes = [
   {path:"home",component:HomeComponent},
-  {path:"DubbingVideo",component:DubbingComponent},
-  {path:"VoiceOver",component:VoiceComponent},
+  {path:"DubbingVideo/:name",component:DubbingComponent},
+  {path:"VoiceOver/:name",component:VoiceComponent},
   {path:"DashBoard",component:DashBoardComponent,children:[
     {path:"management",component:ManagementComponent},
     {path:"statiscs",component:StatisticsComponent}
@@ -22,7 +22,7 @@ const routes: Routes = [
     {path:"login",component:LoginComponent},
     {path:"register",component:RegisterComponent}
   ]},
-  // {path:"**",redirectTo:"/auth"},
+  {path:"",redirectTo:"/auth/login",pathMatch:'full'},
 ];
 
 @NgModule({

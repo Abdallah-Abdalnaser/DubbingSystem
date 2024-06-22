@@ -1,16 +1,17 @@
 <form action="" (ngSubmit)="onSubmit(form)" #form="ngForm">
   <div class="spinner" [ngClass]="{active:isFetch}">
-    <div></div>
+    <img src="../../../../../assets/images/chatbot.gif" alt="">
+    <!-- <span>{{progressData.step}}%</span>
+    <span>{{progressData.message}}</span>
+    <div>
+      <span [ngStyle]="{'width': progressData.step + '%'}"></span>
+    </div> -->
   </div>
   <header>
     <fa-icon [icon]="faCloudflare"></fa-icon>
     <h1>Upload Video</h1>
     <span (click)="close()">x</span>
   </header>
-  <div class="mb-3">
-    <label for="formFile" class="form-label">Upload Video</label>
-    <input class="form-control" type="file" id="formFile">
-  </div>
   <div class="input-group flex-nowrap">
     <span class="input-group-text" id="addon-wrapping">
       <fa-icon [icon]="faYoutube"></fa-icon>

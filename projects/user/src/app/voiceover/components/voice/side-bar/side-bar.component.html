@@ -7,21 +7,29 @@
   <ul>
     <li>
       <fa-icon [icon] = "faPersonHalfDress"></fa-icon>
-      <select name="gender" id="gender">
+      <select name="gender" id="gender" (input)="catchGender(gender.value)" #gender>
+        <option value="male" selected>Select</option>
         <option value="male">Male</option>
-        <option value="Female">Female</option>
+        <option value="female">Female</option>
       </select>
       <!-- <span>Original</span> -->
     </li>
     <li>
-      <fa-icon [icon] = "faMicrophone"></fa-icon>
-      <select name="gender" id="gender">
-        <option value="male">Angry</option>
-        <option value="Female">Sad</option>
-        <option value="Female">Excited</option>
-        <option value="Female">Cheerfly</option>
+      <fa-icon [icon] = "faEarth"></fa-icon>
+      <select name="language" id="language" (input)="catchlanguage(language.value)" #language>
+        <option value="male" selected>Select</option>
+        <option value="ar">Arabic</option>
+        <option value="en">English</option>
+        <option value="fr">French</option>
+        <option value="es">Spanish</option>
+        <option value="de">German</option>
+        <option value="it">Italian</option>
+        <option value="zh">Chinese</option>
+        <option value="ja">Japanese</option>
+        <option value="ru">Russian</option>
+        <option value="hi">Hindi</option>
       </select>
-      <!-- <span>Arabic</span> -->
+      <!-- <span>Original</span> -->
     </li>
   </ul>
   <!-- profile Button-->

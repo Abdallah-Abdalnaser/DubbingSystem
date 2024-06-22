@@ -1,21 +1,27 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-12">
-      <figcaption>
-        <div class="box">
-          <span>A</span>
-          <textarea id="" placeholder="Enter Text Here">Hello</textarea>
-        </div>
-        <div class="box">
-          <span>B</span>
-          <textarea id="" placeholder="Enter Text Here">Helo, How are you?</textarea>
-        </div>
-        <div class="box active">
-          <span>A</span>
-          <textarea id="" placeholder="Enter Text Here"></textarea>
-        </div>
-      </figcaption>
-    </div>
-    <button type="button" class="btn btn-dark">Add block</button>
+    <form (ngSubmit)="onSubmit(form)" #form="ngForm">
+      <div class="col-md-12">
+        <figcaption>
+          <div class="box">
+            <div class="spinner" [ngClass]="{active: fetching === false}">
+              <img src="../../../../assets/images/voice-recorder.gif" alt="">
+            </div>
+            <textarea id="" placeholder="Enter Your Script" name="text" ngModel required #text="ngModel"></textarea>
+          </div>
+          <p *ngIf="!text.valid  && text.touched">*Invalid Email</p>
+        </figcaption>
+      </div>
+      <button type="submit" class="btn btn-dark" [disabled]="!form.valid" [ngClass]="{vaild: form.valid}">Convert to Audio</button>
+    </form>
   </div>
 </div>
+<audio src={{src}} #AudioP></audio>
+<div class="controller">
+  <div class="con">
+    <fa-icon [icon]="faBackward" (click)="decreaseTime(10)"></fa-icon>
+    <fa-icon [icon]="isPlaying ? faPause : faPlay" (click)="togglePlayPause()"></fa-icon>
+    <fa-icon [icon]="faForward" (click)="increaseTime(10)"></fa-icon>
+  </div>
+</div>
+

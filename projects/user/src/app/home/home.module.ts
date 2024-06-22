@@ -11,6 +11,7 @@ import { DubbingFormComponent } from './components/home/dubbing-form/dubbing-for
 import { DashboardModule } from '../dashboard/dashboard.module';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { VoiceoverFormComponent } from './components/home/voiceover-form/voiceover-form.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { FormsModule } from '@angular/forms';
     SideBarComponent,
     TemplatesComponent,
     OpenedProjectsComponent,
-    DubbingFormComponent
+    DubbingFormComponent,
+    VoiceoverFormComponent
   ],
   imports: [
     CommonModule,

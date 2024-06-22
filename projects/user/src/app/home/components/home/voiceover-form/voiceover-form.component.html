@@ -1,0 +1,11 @@
+<section>
+  <header>
+    <fa-icon [icon]="faMicrophone"></fa-icon>
+    <h1>Project Name</h1>
+    <span (click)="close()">x</span>
+  </header>
+  <div class="input-group flex-nowrap">
+    <input type="text" class="form-control" placeholder="Enter Your Project Name" aria-label="link" aria-describedby="addon-wrapping" #input>
+  </div>
+  <button type="button" class="btn btn-dark" (click)="create(input.value)">Create Project</button>
+</section>

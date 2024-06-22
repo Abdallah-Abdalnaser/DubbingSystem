@@ -17,7 +17,7 @@
       <fa-icon [icon] = "faVideo"></fa-icon>
       <span [ngClass]="{hidden:showSideBar === false}">Dubbing Video</span>
     </li>
-    <li [routerLink]="['/VoiceOver']" routerLinkActive="active">
+    <li routerLinkActive="active" (click)="openvoiceoverForm()">
       <fa-icon [icon] = "faMicrophone" ></fa-icon>
       <span [ngClass]="{hidden:showSideBar === false}">Voice Over</span>
     </li>

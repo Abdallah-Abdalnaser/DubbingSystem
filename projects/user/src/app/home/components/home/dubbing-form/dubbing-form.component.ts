@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { IconDefinition, faYoutube , faSoundcloud} from '@fortawesome/free-brands-svg-icons';
 import { HomeService } from '../../../services/home.service';
 import { NgForm } from '@angular/forms';
@@ -9,25 +9,42 @@ import { ActivatedRoute, Route, Router } from '@angular/router';
   templateUrl: './dubbing-form.component.html',
   styleUrls: ['./dubbing-form.component.scss']
 })
-export class DubbingFormComponent {
+export class DubbingFormComponent implements OnInit{
   faYoutube:IconDefinition = faYoutube;
   faCloudflare:IconDefinition = faSoundcloud;
   isFetch:boolean=false;
-  constructor(private HomeService:HomeService ,private router:Router ,private route: ActivatedRoute) {}
+  progressData:{step:number,message:string} = {step:0,message:"Starting..."} ;
+  constructor(private HomeService:HomeService ,private router:Router ,private route: ActivatedRoute ) {}
+
+ngOnInit(): void {
+
+}
 
   close()  {
     this.HomeService.formLink.next(false);
-    console.log('work');
   }
 
   onSubmit(form:NgForm) {
     this.isFetch =!this.isFetch;
+    // this.HomeService.getprogress().subscribe(
+    //   (data:any) => {
+    //     setInterval(() => {
+    //       console.log(data);
+    //       console.log(data.step);
+    //       console.log(data.message);
+    //       this.progressData = data;
+    //     }, 2000);
+    //     console.log(data);
+    //   }
+    // )
     this.HomeService.linkRequest(form.value).subscribe(
-      (data)=> {
-        this.router.navigate(['/DubbingVideo'],{relativeTo:this.route});
+      (data:any)=> {
+        console.log(data);
+        this.router.navigate([`/DubbingVideo/${data.title}`],{relativeTo:this.route});
         this.isFetch =!this.isFetch;
       },
       (error)=> {
+        // console.log(error);
         this.isFetch =!this.isFetch;
       }
     )

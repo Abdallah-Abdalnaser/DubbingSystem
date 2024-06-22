@@ -22,23 +22,13 @@
     <p *ngIf="!email.valid && email.touched && email.value">*Invalid email</p>
   </div>
   <div class="form-group">
-    <label for="address" class="form-label">Address</label>
-    <input type="text" class="form-control" id="address" ngModel required name="address" #Address = "ngModel">
-    <p *ngIf="!Address.value && Address.touched">*Required Field</p>
-  </div>
-  <div class="form-group">
-    <label for="userName" class="form-label">user Name</label>
-    <input type="text" class="form-control" id="userName" ngModel required name="userName" #userName = "ngModel">
-    <p *ngIf="!userName.value && userName.touched">*Required Field</p>
-  </div>
-  <div class="form-group">
     <div class="passlabel">
       <label for="password" class="form-label">Password</label>
       <fa-icon [icon]="passwordVisible ? faEye : faEyeSlash" (click)="showpassword()"></fa-icon>
     </div>
-    <input type={{type1}} class="form-control" id="password" ngModel required name="password"  minlength="10" maxlength="50" pattern="\w+(\*|#|@|!)+\w*" #password="ngModel">
+    <input type={{type1}} class="form-control" id="password" ngModel required name="password"  minlength="10" maxlength="50" pattern="(\*|#|@|!|\$)*\w+(\*|#|@|!|\$|\<|\>)+\w*" #password="ngModel">
     <p *ngIf="!password.value && password.touched">*Required field</p>
-    <p *ngIf="!password.valid && password.touched && password.value">*Invalid it just contain special character</p>
+    <p *ngIf="!password.valid && password.touched && password.value">*Invalid it just contain special character ( * , # , @ , ! , $ , < , > )</p>
     <p *ngIf="!password.valid && password.touched && password.value.length < 10">*it should contain more than 10 characters</p>
   </div>
   <div class="form-group">
@@ -49,6 +39,23 @@
     <input type={{type2}} class="form-control" id="confirmPassword" ngModel required name="confirmPassword" maxlength="50" pattern="\w+(\*|#|@|!)+\w*" #conpassword="ngModel">
     <p *ngIf="!conpassword.value && conpassword.touched">*Required field</p>
     <p *ngIf="!(password.value == conpassword.value) && conpassword.touched && conpassword.value">*Don't match</p>
+  </div>
+  <div class="form-group">
+    <label for="creditcardnumber" class="form-label">Credit Card Number</label>
+    <input type="text" class="form-control" id="creditcardnumber" ngModel required name="creditcardnumber" #creditcardnumber="ngModel">
+    <p *ngIf="!creditcardnumber.valid && creditcardnumber.touched">*Required Field</p>
+  </div>
+  <div class="credinfo">
+    <div class="form-group">
+      <label for="cvc" class="form-label">CVC</label>
+      <input type="password" class="form-control" id="cvc" ngModel required name="cvc" #cvc="ngModel" maxlength="3">
+      <p *ngIf="!cvc.valid && cvc.touched">*Required Field</p>
+    </div>
+    <div class="form-group">
+      <label for="expirationdate" class="form-label">Expiration Date</label>
+      <input type="text" class="form-control" id="expirationdate" ngModel required name="expirationdate" #expirationdate="ngModel">
+      <p *ngIf="!expirationdate.valid && expirationdate.touched">*Required Field</p>
+    </div>
   </div>
   <br>
   <div class="create">

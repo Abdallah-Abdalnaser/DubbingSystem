@@ -9,13 +9,20 @@ import { Subscription } from 'rxjs';
 })
 export class HomeComponent implements DoCheck , OnDestroy{
   closeWindow!:boolean;
+  closeWindowvoiceover!:boolean;
   subscription!:Subscription;
+  subscription2!:Subscription;
   constructor(private HomeService:HomeService){}
 
   ngDoCheck(): void {
     this.subscription = this.HomeService.formLink.subscribe(
       (data) => {
         this.closeWindow = data;
+      }
+    )
+    this.subscription2 = this.HomeService.voiceOverNameForm.subscribe(
+      (data) => {
+        this.closeWindowvoiceover = data;
       }
     )
   }

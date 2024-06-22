@@ -20,7 +20,10 @@ export class SideBarComponent {
 
   openFormLink() {
     this.HomeService.formLink.next(true);
-    console.log('work');
+  }
+
+  openvoiceoverForm() {
+    this.HomeService.voiceOverNameForm.next(true);
   }
 
   showSideBare() {
