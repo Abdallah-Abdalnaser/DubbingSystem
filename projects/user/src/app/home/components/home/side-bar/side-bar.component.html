@@ -23,8 +23,8 @@
     </li>
   </ul>
   <!-- profile Button-->
-  <div class="Profile">
-    <fa-icon [icon] = "faUser"></fa-icon>
-    <span [ngClass]="{hidden:showSideBar === false}">Profile</span>
+  <div class="Profile" (click)="signout()">
+    <fa-icon [icon] = "faSignOut"></fa-icon>
+    <span [ngClass]="{hidden:showSideBar === false}">Log out</span>
   </div>
 </nav>

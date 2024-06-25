@@ -49,6 +49,9 @@ export class TextComponent implements OnInit{
       (data:any) => {
         this.src = data.download_url
         this.fetching = true
+      },
+      (error)=> {
+        this.fetching = true
       }
     )
   }

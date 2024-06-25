@@ -37,10 +37,11 @@ ngOnInit(): void {
     //     console.log(data);
     //   }
     // )
-    this.HomeService.linkRequest(form.value).subscribe(
+    this.HomeService.sendyoutubeLink(form.value).subscribe(
       (data:any)=> {
         console.log(data);
-        this.router.navigate([`/DubbingVideo/${data.title}`],{relativeTo:this.route});
+        this.HomeService.refreshProjectopen.next(true);
+        this.close();
         this.isFetch =!this.isFetch;
       },
       (error)=> {

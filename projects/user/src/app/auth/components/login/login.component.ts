@@ -25,13 +25,18 @@ export class LoginComponent {
     this.AuthService.logIn(form.value).subscribe(
       (data:any)=> {
         localStorage.setItem("token",data.data);
-        this.router.navigate(['../../home'],{relativeTo:this.route})
+        if (this.AuthService.getRole(localStorage.getItem('token'))  === 'User') {
+          this.router.navigate(['/home'],{relativeTo:this.route})
+        } else if(this.AuthService.getRole(localStorage.getItem('token'))  === 'Admin') {
+          this.router.navigate(['/DashBoard/management'],{relativeTo:this.route})
+        }
+        this.fetching = true;
+      },
+      (error) => {
         this.fetching = true;
       }
     )
   }
-
-
 
   showpassword() {
     if (this.type === "password") {

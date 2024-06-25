@@ -22,6 +22,7 @@ export class VideoSubtitleComponent implements OnInit {
   srt_array: any;
   isPlaying: boolean = false;
   isFetch:boolean=true;
+  poster:string='';
 
   @ViewChild('videoP', { static: true }) videoP!: ElementRef<HTMLVideoElement>;
 
@@ -44,6 +45,12 @@ export class VideoSubtitleComponent implements OnInit {
     this.VideoService.srtFile.subscribe(
       (data: string) => {
         this.srtFile = data;
+        this.getdata();
+      }
+    );
+    this.VideoService.videoPoster.subscribe(
+      (data: string) => {
+        this.poster = data;
         this.getdata();
       }
     );

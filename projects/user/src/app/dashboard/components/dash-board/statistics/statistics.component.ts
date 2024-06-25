@@ -1,6 +1,7 @@
 import { Component,OnInit,ViewChild } from '@angular/core';
 import { faUserTie, IconDefinition , faUser , faFileCircleCheck ,faGear } from '@fortawesome/free-solid-svg-icons';
 import { Chart , registerables} from 'chart.js';
+import { DashboardService } from '../../../services/dashboard.service';
 Chart.register(...registerables);
 
 @Component({
@@ -13,9 +14,21 @@ export class StatisticsComponent implements OnInit{
   faUser:IconDefinition=faUser;
   faFileCircleCheck:IconDefinition=faFileCircleCheck;
   faGear:IconDefinition=faGear;
+  numberOfUsers!:number;
+
+  constructor(private DashboardService:DashboardService) {}
 
   ngOnInit(): void {
     this.RenderChart();
+    this.getnumberOfUsers()
+  }
+
+  getnumberOfUsers () {
+    this.DashboardService.getAllUser().subscribe(
+      (data:any)=> {
+        this.numberOfUsers = data.data.length;
+      }
+    )
   }
 
   RenderChart() {

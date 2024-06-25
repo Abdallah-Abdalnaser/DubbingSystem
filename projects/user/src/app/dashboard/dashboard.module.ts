@@ -8,7 +8,8 @@ import { StatisticsComponent } from './components/dash-board/statistics/statisti
 import { AppRoutingModule } from '../app-routing.module';
 import { register } from 'swiper/element/bundle';
 import { UserslistComponent } from './components/dash-board/management/userslist/userslist.component';
-
+import { HttpClientModule } from '@angular/common/http';
+import {NgxPaginationModule} from 'ngx-pagination';
 register();
 
 
@@ -24,7 +25,9 @@ register();
   imports: [
     CommonModule,
     FontAwesomeModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    NgxPaginationModule
   ],
   schemas:[
     CUSTOM_ELEMENTS_SCHEMA

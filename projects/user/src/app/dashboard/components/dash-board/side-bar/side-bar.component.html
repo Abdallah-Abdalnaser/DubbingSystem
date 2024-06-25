@@ -13,14 +13,14 @@
       <fa-icon [icon] = "faBagShopping"></fa-icon>
       <span [ngClass]="{hidden:showSideBar === false}">User Management</span>
     </li>
-    <li [routerLink]="['/DashBoard','statiscs']" routerLinkActive="active">
+    <li [routerLink]="['/DashBoard','statistics']" routerLinkActive="active">
       <fa-icon [icon] = "faChartPie"></fa-icon>
       <span [ngClass]="{hidden:showSideBar === false}">Statistics Overview</span>
     </li>
   </ul>
   <!-- profile Button-->
-  <div class="Profile">
-    <fa-icon [icon] = "faUser"></fa-icon>
-    <span [ngClass]="{hidden:showSideBar === false}">Profile</span>
+  <div class="Profile" (click)="signout()">
+    <fa-icon [icon] = "faSignOut"></fa-icon>
+    <span [ngClass]="{hidden:showSideBar === false}">Sign Out</span>
   </div>
 </nav>

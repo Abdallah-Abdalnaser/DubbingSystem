@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IconDefinition, faBars, faMicrophone,faVideo,faHome,faUser} from '@fortawesome/free-solid-svg-icons';
+import { IconDefinition, faBars, faMicrophone,faVideo,faHome,faSignOut} from '@fortawesome/free-solid-svg-icons';
 import { HomeService } from '../../../services/home.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-side-bar',
@@ -12,11 +13,11 @@ export class SideBarComponent {
   faHome:IconDefinition = faHome;
   faMicrophone:IconDefinition = faMicrophone;
   faVideo:IconDefinition = faVideo;
-  faUser:IconDefinition = faUser;
+  faSignOut:IconDefinition = faSignOut;
   showSideBar:boolean = false;
   mainWidth:string = '60px';
 
-  constructor(private HomeService:HomeService) {}
+  constructor(private HomeService:HomeService , private route:Router , private router:ActivatedRoute) {}
 
   openFormLink() {
     this.HomeService.formLink.next(true);
@@ -24,6 +25,11 @@ export class SideBarComponent {
 
   openvoiceoverForm() {
     this.HomeService.voiceOverNameForm.next(true);
+  }
+
+  signout() {
+    localStorage.clear();
+    this.route.navigate(['/auth/login'],{relativeTo:this.router})
   }
 
   showSideBare() {

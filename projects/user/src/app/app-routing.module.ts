@@ -9,20 +9,23 @@ import { StatisticsComponent } from './dashboard/components/dash-board/statistic
 import { AuthComponent } from './auth/auth.component';
 import { LoginComponent } from './auth/components/login/login.component';
 import { RegisterComponent } from './auth/components/register/register.component';
+import { mainadminGuard } from './gards/mainadmin.guard';
+import { mainhomeGuard } from './gards/mainhome.guard';
 
 const routes: Routes = [
-  {path:"home",component:HomeComponent},
-  {path:"DubbingVideo/:name",component:DubbingComponent},
-  {path:"VoiceOver/:name",component:VoiceComponent},
-  {path:"DashBoard",component:DashBoardComponent,children:[
-    {path:"management",component:ManagementComponent},
-    {path:"statiscs",component:StatisticsComponent}
+  { path: 'home', component: HomeComponent , canActivate:[mainhomeGuard] },
+  { path: 'DubbingVideo/:id', component: DubbingComponent,canActivate:[mainhomeGuard] },
+  { path: 'VoiceOver/:name', component: VoiceComponent , canActivate:[mainhomeGuard]},
+  { path: 'DashBoard', component: DashBoardComponent, canActivate: [mainadminGuard], children: [
+    { path: 'management', component: ManagementComponent },
+    { path: 'statistics', component: StatisticsComponent }
   ]},
-  {path:"auth",component:AuthComponent,children:[
-    {path:"login",component:LoginComponent},
-    {path:"register",component:RegisterComponent}
+  { path: 'auth', component: AuthComponent, children: [
+    { path: 'login', component: LoginComponent },
+    { path: 'register', component: RegisterComponent }
   ]},
-  {path:"",redirectTo:"/auth/login",pathMatch:'full'},
+  { path: '', redirectTo: '/auth/login', pathMatch: 'full' },
+  { path: '**', redirectTo: '/auth/login', pathMatch: 'full' }
 ];
 
 @NgModule({

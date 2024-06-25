@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { IconDefinition, faUser,faHome,faGlobe } from '@fortawesome/free-solid-svg-icons';
 import { data, VideoService } from '../../../services/video.service';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { DubbingProject } from 'projects/user/src/app/home/Dubbing.model';
 
 @Component({
   selector: 'app-side-bar',
@@ -13,41 +14,42 @@ export class SideBarComponent implements OnInit{
   faHome:IconDefinition = faHome;
   faGlobe:IconDefinition = faGlobe;
   org:boolean=true;
-  videoName:string='';
+  videoid!:number;
 
   constructor(private VideoService:VideoService ,private router:Router , private route:ActivatedRoute) {}
 
   ngOnInit(): void {
     this.route.params.subscribe(
       (param:Params)=> {
-        console.log(param['name']);
-        this.videoName = param['name'];
+        this.videoid = param['id'];
       }
     )
-    this.VideoService.getData(this.videoName).subscribe(
-      (data:data)=> {
-        this.VideoService.video.next(data.video)
-        this.VideoService.srtFile.next(data.audio)
+    this.VideoService.getDubbingProjectById(this.videoid).subscribe(
+      (data:DubbingProject)=> {
+        this.VideoService.video.next(data.originalVideo)
+        this.VideoService.srtFile.next(data.originalSrt)
+        this.VideoService.videoPoster.next(data.videoThumbnail)
+        this.VideoService.videoName.next(data.videoTitle)
       }
     )
   }
 
   original() {
     this.org = true;
-    this.VideoService.getData(this.videoName).subscribe(
-      (data:data)=> {
-        this.VideoService.video.next(data.video)
-        this.VideoService.srtFile.next(data.audio)
+    this.VideoService.getDubbingProjectById(this.videoid).subscribe(
+      (data:DubbingProject)=> {
+        this.VideoService.video.next(data.originalVideo)
+        this.VideoService.srtFile.next(data.originalSrt)
       }
     )
   }
 
   Arabic() {
     this.org = false;
-    this.VideoService.getData(this.videoName).subscribe(
-      (data:data)=> {
-        this.VideoService.video.next(data.dubbed_video)
-        this.VideoService.srtFile.next(data.audio_ar)
+    this.VideoService.getDubbingProjectById(this.videoid).subscribe(
+      (data:DubbingProject)=> {
+        this.VideoService.video.next(data.dubbedVideo)
+        this.VideoService.srtFile.next(data.translatedSrt)
       }
     )
   }
