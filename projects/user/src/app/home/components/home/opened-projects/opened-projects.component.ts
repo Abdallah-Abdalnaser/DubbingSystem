@@ -9,6 +9,7 @@ import { DubbingProject } from '../../../Dubbing.model';
 })
 export class OpenedProjectsComponent implements OnInit{
   openProject:DubbingProject[]=[]
+  fetching:boolean=true;
   constructor(private HomeService:HomeService){}
 
 
@@ -25,9 +26,11 @@ export class OpenedProjectsComponent implements OnInit{
   }
 
   openProjects() {
+    this.fetching = false;
     this.HomeService.getallDubbingProject().subscribe(
       (data:any) => {
         this.openProject = data;
+        this.fetching = true;
       }
     )
   }

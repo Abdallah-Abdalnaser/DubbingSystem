@@ -15,6 +15,7 @@ export class StatisticsComponent implements OnInit{
   faFileCircleCheck:IconDefinition=faFileCircleCheck;
   faGear:IconDefinition=faGear;
   numberOfUsers!:number;
+  fetching:boolean=true;
 
   constructor(private DashboardService:DashboardService) {}
 
@@ -24,9 +25,11 @@ export class StatisticsComponent implements OnInit{
   }
 
   getnumberOfUsers () {
+    this.fetching = false;
     this.DashboardService.getAllUser().subscribe(
       (data:any)=> {
         this.numberOfUsers = data.data.length;
+        this.fetching = true;
       }
     )
   }

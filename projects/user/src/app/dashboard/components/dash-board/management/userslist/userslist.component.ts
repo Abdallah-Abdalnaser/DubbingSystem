@@ -37,7 +37,7 @@ export class UserslistComponent implements OnInit {
   Search(input:any) {
     this.SearchUsers = this.users;
     let res = this.SearchUsers.filter((ele)=>{
-      return ele.firstName.toLowerCase().startsWith(input.target.value.toLowerCase())
+      return ele.firstName.toLowerCase().includes(input.target.value.toLowerCase())
     })
     if (input.target.value.toLowerCase() !== '') {
       this.SearchUsers = res;
